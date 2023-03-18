@@ -83,20 +83,40 @@ class Contacts extends StatelessWidget {
       body: ListView(
           children: List.generate(
         8,
-        (index) => Card(color: Colors.blueGrey,
+        (index) => Card(
+            color: Colors.blueGrey,
             child: ListTile(
-                title: Text(name[index],style: TextStyle(fontWeight: FontWeight.bold),),
+                title: Text(
+                  name[index],
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
                 subtitle: Text(number[index]),
                 leading:
                     CircleAvatar(backgroundImage: AssetImage(image[index])),
-                trailing: Icon(Icons.call))),
+                trailing: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: const [
+                    CircleAvatar(
+                        backgroundColor: Color(0xFF78909C),
+                        child: Icon(Icons.call)),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    CircleAvatar(
+                        backgroundColor: Color(0xFF78909C),
+                        child: Icon(Icons.chat),)
+                  ],
+                ))),
       )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         backgroundColor: Color(0xFFFFFFFF),
         child: const Padding(
           padding: EdgeInsets.all(8.0),
-          child: Icon(Icons.add,color: Colors.black,),
+          child: Icon(
+            Icons.add,
+            color: Colors.black,
+          ),
         ),
       ),
     );
